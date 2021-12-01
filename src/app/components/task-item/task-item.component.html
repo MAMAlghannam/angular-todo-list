@@ -1,6 +1,6 @@
 <div>
     <p>
-        <input type="checkbox" />
+        <input type="checkbox" (change)="onToggle()" [checked]="task.isDone" />
         {{ task.content + " - " + (task.isDone ? "Yes" : "No") }}
     </p>
     <button

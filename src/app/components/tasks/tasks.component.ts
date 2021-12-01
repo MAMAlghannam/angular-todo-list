@@ -28,6 +28,7 @@ export class TasksComponent implements OnInit {
   ];
 
   ngOnInit(): void {
+    console.log("tasks init")
   }
 
   addItem(){
@@ -40,10 +41,13 @@ export class TasksComponent implements OnInit {
     })
   }
 
-  handleDeleteItem(item: any) {
-    // this.tasks = this.tasks.filter(task => task.id != item.id)
-    this.tasks.splice(item, 1)
-    console.log("Deleted !" + item)
+  handleDeleteTask(itemIndex: number) {
+    this.tasks.splice(itemIndex, 1)
+    console.log("Deleted !" + itemIndex)
+  }
+
+  handleToggleTask(itemIndex: any) {
+    this.tasks[itemIndex].isDone = !this.tasks[itemIndex].isDone
   }
   
 }
