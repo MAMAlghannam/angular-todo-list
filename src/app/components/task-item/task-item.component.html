@@ -1,7 +1,7 @@
-<div>
+<div [ngClass]="{taskDone: task.isDone}" >
     <p>
         <input type="checkbox" (change)="onToggle()" [checked]="task.isDone" />
-        {{ task.content + " - " + (task.isDone ? "Yes" : "No") }}
+        {{ task.content }}
     </p>
     <button
         (click)="onDelete()"

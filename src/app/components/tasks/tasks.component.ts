@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { TaskService } from '../../services/task.service'
 
 @Component({
   selector: 'app-tasks',
@@ -7,47 +8,63 @@ import { Component, OnInit } from '@angular/core';
 })
 export class TasksComponent implements OnInit {
 
-  constructor() { }
+  constructor(private taskService: TaskService) { }
 
-  tasks: any = [
-    {
-      id: 1,
-      content: "task 1",
-      isDone: false
-    },
-    {
-      id: 2,
-      content: "task 2",
-      isDone: false
-    },
-    {
-      id: 3,
-      content: "task 3",
-      isDone: false
-    }
-  ];
+  tasks: any = [];
+  isLoading: boolean = false;
 
   ngOnInit(): void {
-    console.log("tasks init")
+    this.isLoading = true
+    this.taskService
+    .getTasks()
+    .subscribe( // how to solve it ?
+      (data) =>{ 
+        this.tasks = data
+        this.isLoading = false
+      },
+      (err) => alert(err)
+    )
   }
 
-  addItem(){
-    let itemId = this.tasks.length > 0 ? this.tasks[this.tasks.length-1].id + 1 : 1
-
-    this.tasks.push({
-      id: itemId,
-      content: `task ${itemId}`,
-      isDone: false
-    })
+  addItem(text: string){
+    this.isLoading = true
+    this.taskService
+    .addTask({ content: text })
+    .subscribe( // how to solve it ?
+      (data) => {
+        this.tasks.push(data)
+        this.isLoading = false
+      },
+      (err) => alert(JSON.stringify(err))
+    )
   }
 
   handleDeleteTask(itemIndex: number) {
-    this.tasks.splice(itemIndex, 1)
-    console.log("Deleted !" + itemIndex)
+    this.isLoading = true
+    this.taskService
+    .deleteTask(itemIndex)
+    .subscribe( // how to solve it ?
+      (data) => {
+        this.tasks.splice(itemIndex, 1)
+        this.isLoading = false
+      },
+      (err) => alert(JSON.stringify(err))
+    )
   }
 
   handleToggleTask(itemIndex: any) {
-    this.tasks[itemIndex].isDone = !this.tasks[itemIndex].isDone
+    this.isLoading = true
+    this.taskService
+    .updateIsDone(itemIndex, !this.tasks[itemIndex].isDone)
+    .subscribe( // how to solve it ?
+      (data) => {
+        this.tasks[itemIndex].isDone = !this.tasks[itemIndex].isDone
+        this.isLoading = false
+      },
+      (err) => {
+        alert(JSON.stringify(err))
+      }
+    )
   }
   
 }

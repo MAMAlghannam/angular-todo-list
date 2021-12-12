@@ -1,6 +1,17 @@
 <br />
-{{ tasks.length == 0 ? "You have no items" : "" }}
-<input type="button" value="Add+" (click)="addItem()" />
+
+<app-add-task
+    (addTask)="addItem($event)"
+></app-add-task>
+<span *ngIf="isLoading" >loading...</span>
+<br />
+
+<div
+    style="color: grey;background-color: rgba(211, 211, 211, 0.568);border-radius: 4px;padding: 5px;text-align: center;"
+    *ngIf="tasks.length == 0" 
+>
+    You have no notes yet
+</div>
 
 <app-task-item
     *ngFor="let task of tasks; let itemIndex = index"

@@ -12,3 +12,8 @@ p {
     /* border: 1px solid black; */
     margin: 0;
 }
+
+.taskDone {
+    text-decoration: line-through;
+    opacity: 0.6;
+}

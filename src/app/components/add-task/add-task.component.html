@@ -1,0 +1,10 @@
+<form (ngSubmit)="onSubmit()" [formGroup]="addTaskForm">
+    <input 
+        type="text" 
+        name="taskName" 
+        id="taskName"
+        formControlName="taskName" 
+        placeholder="type here..." 
+        autocomplete="off"
+    />
+</form>

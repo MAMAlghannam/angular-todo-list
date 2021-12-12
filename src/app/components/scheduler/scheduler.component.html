@@ -1,0 +1,19 @@
+<br />
+
+<label for="date" >Select date:</label>
+<br />
+<input 
+    id="date"
+    type="date"
+    (change)="dateChanged($event)"
+/>
+
+<br />
+<br />
+
+
+<schedule-item
+    *ngFor="let item of list"
+    [item]="item"
+>
+</schedule-item>
