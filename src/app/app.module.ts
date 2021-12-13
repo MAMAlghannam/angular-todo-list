@@ -11,6 +11,7 @@ import { AppRoutingModule } from './modules/app-routing.module';
 import { TasksComponent } from './components/tasks/tasks.component';
 import { ScheduleItemComponent } from './components/schedule-item/schedule-item.component';
 import { SchedulerComponent } from './components/scheduler/scheduler.component';
+import { YelpComponent } from './components/yelp/yelp.component';
 
 @NgModule({
   imports: [
@@ -28,6 +29,7 @@ import { SchedulerComponent } from './components/scheduler/scheduler.component';
     AddTaskComponent,
     SchedulerComponent,
     ScheduleItemComponent,
+    YelpComponent,
   ],
   providers: [],
   bootstrap: [AppComponent]

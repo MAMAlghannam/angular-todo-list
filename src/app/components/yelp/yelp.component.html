@@ -1,0 +1,11 @@
+<select
+    style="min-width: 150px;"
+    *ngIf="categories.length != 0"
+>
+    <option 
+        *ngFor="let category of categories" 
+        value="{{ category.alias }}"
+    >
+        {{ category.title }}
+    </option>
+</select>

@@ -3,11 +3,13 @@ import { RouterModule, Routes } from '@angular/router';
 
 import { TasksComponent } from '../components/tasks/tasks.component';
 import { SchedulerComponent } from '../components/scheduler/scheduler.component';
+import { YelpComponent } from '../components/yelp/yelp.component';
 
 const appRoutes: Routes = [
   { path: "", redirectTo: "/tasks", pathMatch: "full" },
   { path: "tasks",  component: TasksComponent },
   { path: "scheduler",  component: SchedulerComponent },
+  { path: "yelpapi",  component: YelpComponent },
 ]
 
 @NgModule({
