@@ -1,0 +1,12 @@
+
+<label>{{ label }}:</label> <br />
+<input 
+    type="text" 
+    placeholder="your {{ label }}..."
+    [formControl]="$any(ngControl).control"
+/>
+<span *ngIf="ngControl?.errors && ngControl?.touched" >
+    {{ errMsg }}
+</span>
+    <!-- (blue)="onTouched()"
+    (ngModelChange)="onChange($event)" -->

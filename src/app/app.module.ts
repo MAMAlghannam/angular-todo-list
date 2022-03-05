@@ -12,6 +12,10 @@ import { TasksComponent } from './components/tasks/tasks.component';
 import { ScheduleItemComponent } from './components/schedule-item/schedule-item.component';
 import { SchedulerComponent } from './components/scheduler/scheduler.component';
 import { YelpComponent } from './components/yelp/yelp.component';
+import { FormComponent } from './components/form/form.component';
+import { InputPlusComponent } from './components/input-plus/input-plus.component';
+import { InputWrapperComponent } from './components/input-warpper/input-wrapper.component';
+import { InputErrMsgComponent } from './components/input-err-msg/input-err-msg.component';
 
 @NgModule({
   imports: [
@@ -30,6 +34,10 @@ import { YelpComponent } from './components/yelp/yelp.component';
     SchedulerComponent,
     ScheduleItemComponent,
     YelpComponent,
+    FormComponent,
+    InputPlusComponent,
+    InputWrapperComponent,
+    InputErrMsgComponent,
   ],
   providers: [],
   bootstrap: [AppComponent]

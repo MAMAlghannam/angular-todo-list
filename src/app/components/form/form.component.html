@@ -1,0 +1,69 @@
+<p>form works!</p>
+
+<form [formGroup]="myForm" (ngSubmit)="onSubmit()">
+
+    <app-input-wrapper [label]="'Name'" >
+        <input type="text" placeholder="your Name..." formControlName="name" />
+        <app-input-err-msg 
+            *ngIf="nameField?.errors?.['required'] && nameField?.touched" 
+        >
+            it's required !
+        </app-input-err-msg>
+    </app-input-wrapper>
+    
+    <br /> <br />
+
+    <app-input-wrapper [label]="'Email'" >
+        <input type="text" placeholder="your Email..." formControlName="email" />
+        <app-input-err-msg 
+            *ngIf="emailField?.errors?.['email'] && emailField?.touched" 
+        >
+            must be a valid email !
+        </app-input-err-msg>
+    </app-input-wrapper>
+
+    <!-- begin of input-plus -->
+    <!-- <app-input-plus
+        [label]="'Name'"
+        formControlName="name"
+        [errMsg]="nameField?.errors?.['required'] ? 'it\'s required !' : ''"
+    ></app-input-plus>
+    <br /> 
+    <br />
+    <app-input-plus
+        [label]="'Email'"
+        formControlName="email"
+        [errMsg]="emailField?.errors?.['email'] ? 'must be a valid email !' : ''"
+    ></app-input-plus>
+    <br />  -->
+    <!-- end of input-plus -->
+    
+    <!-- <label>Name:</label> * <br />
+    <input 
+        type="text" 
+        placeholder="your Name..."
+        formControlName="name"
+    />
+    <span *ngIf="nameField?.errors?.['required'] && nameField?.touched" >
+        it's required !
+    </span>
+    <br />
+    <label>Email:</label> <br />
+    <input 
+        type="text" 
+        placeholder="your Email..."
+        formControlName="email"
+    />
+    <span *ngIf="emailField?.errors?.['email'] && emailField?.touched" >
+        must be a valid email !
+    </span> -->
+    
+    <br /> 
+    <br />
+    The form is {{ myForm.status }} !
+    <br />
+    {{ myForm.value | json }}
+    <br /> <br /> 
+    <input type="submit" [disabled]="!myForm.valid" />
+
+</form>
