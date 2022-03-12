@@ -7,13 +7,16 @@ import { YelpComponent } from '../components/yelp/yelp.component';
 import { FormComponent } from '../components/form/form.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
+import { VirtualScrollComponent } from '../components/virtual-scroll/virtual-scroll.component';
+import { NgbDropdownModule } from '@ng-bootstrap/ng-bootstrap';
 
 const appRoutes: Routes = [
   { path: "", redirectTo: "/tasks", pathMatch: "full" },
   { path: "tasks",  component: TasksComponent },
   { path: "scheduler",  component: SchedulerComponent },
   { path: "yelpapi",  component: YelpComponent },
-  { path: "form",  component: FormComponent }
+  { path: "form",  component: FormComponent },
+  { path: "virtual-scroll",  component: VirtualScrollComponent },
 ]
 
 @NgModule({
@@ -25,7 +28,8 @@ const appRoutes: Routes = [
     ),
     BrowserModule, 
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    // NgbDropdownModule,
   ],
   exports: [
     RouterModule

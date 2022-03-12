@@ -16,6 +16,11 @@ import { FormComponent } from './components/form/form.component';
 import { InputPlusComponent } from './components/input-plus/input-plus.component';
 import { InputWrapperComponent } from './components/input-warpper/input-wrapper.component';
 import { InputErrMsgComponent } from './components/input-err-msg/input-err-msg.component';
+import { VirtualScrollComponent } from './components/virtual-scroll/virtual-scroll.component';
+
+import { VirtualScrollerModule } from 'ngx-virtual-scroller';
+import { NgbDropdownModule } from '@ng-bootstrap/ng-bootstrap';
+
 
 @NgModule({
   imports: [
@@ -23,6 +28,8 @@ import { InputErrMsgComponent } from './components/input-err-msg/input-err-msg.c
     FormsModule,
     ReactiveFormsModule,
     HttpClientModule,
+    VirtualScrollerModule,
+    NgbDropdownModule,
     AppRoutingModule // custom routing module
   ],
   declarations: [
@@ -38,6 +45,7 @@ import { InputErrMsgComponent } from './components/input-err-msg/input-err-msg.c
     InputPlusComponent,
     InputWrapperComponent,
     InputErrMsgComponent,
+    VirtualScrollComponent,
   ],
   providers: [],
   bootstrap: [AppComponent]

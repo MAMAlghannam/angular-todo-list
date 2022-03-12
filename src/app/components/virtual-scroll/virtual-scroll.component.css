@@ -1,0 +1,8 @@
+virtual-scroller {
+  height: 400px;
+}
+
+virtual-scroller div {
+  background-color: #eee;
+  padding: 12px;
+}

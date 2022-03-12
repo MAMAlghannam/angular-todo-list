@@ -1,0 +1,28 @@
+<p>virtual scroll working</p>
+
+<div style="width: 50vw;margin: auto;" [formGroup]="optionsForm" >  
+  <div ngbDropdown #myDrop="ngbDropdown" (openChange)="dropdownToggle($event)" class="d-inline-block border" style="width: 100%;" >
+    <button class="form-control" id="dropdownBasic1" ngbDropdownToggle  style="width: 100%;" >Toggle dropdown</button>
+    <div ngbDropdownMenu aria-labelledby="dropdownBasic1"  style="width: 100%;">
+      <ng-container *ngIf="isDropdownOpened" >
+        <virtual-scroller #scroll [items]="items">
+          <div *ngFor="let item of scroll.viewPortItems">
+            <label for="item-{{ item.id }}" >{{item.name}}</label>
+            <input formControlName="category" id="item-{{ item.id }}" type="radio" value="{{ item.id }}" />
+          </div>
+        </virtual-scroller>
+        <app-input-err-msg></app-input-err-msg>
+      </ng-container>
+    </div>
+  </div>
+</div>
+
+<br /> <br />
+Total: {{ items.length }} <br />
+<input
+  #searchInput
+  type="search" 
+  autocomplete="off" 
+  name="search" 
+  (input)="onInput($event)" 
+/>
